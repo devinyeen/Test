@@ -119,13 +119,25 @@ public class Test<E> {
 //        Fruit f = new Apple();
 //        f.setDate(new Date());
 
-        Apple apple = new Apple();
-        apple.print(100);
-        System.out.println(apple.name);
+//        Apple apple = new Apple();
+//        apple.print(100);
+//        System.out.println(apple.name);
+//
+//        Fruit fruit = apple;
+//        fruit.print(100);
+//        System.out.println(fruit.name);
 
-        Fruit fruit = apple;
-        fruit.print(100);
-        System.out.println(fruit.name);
+        ArrayList<String> al = new ArrayList<String>();
+        al.add("fsfsfs");
+        al.add("fsfsfsfsf");
+        System.out.println(al.get(0).hashCode());
+        System.out.println(al.get(1).hashCode());
+        ArrayList<String> alClone = (ArrayList<String>)al.clone();
+        al.clear();
+        System.out.println(al);
+        System.out.println(alClone.get(0).hashCode());
+        System.out.println(alClone.get(1).hashCode());
+        System.out.println(alClone);
 
     }
 
