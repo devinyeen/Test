@@ -139,6 +139,8 @@ public class Test<E> {
 //        System.out.println(alClone.get(1).hashCode());
 //        System.out.println(alClone);
 
+        int i =0,len=7;
+        System.out.println((i+len)/2);
     }
 
 //    public static <T> T compare(T t1,T t2){
