@@ -1,39 +1,40 @@
 package com.spread.ydy.algorithms.ch01;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 
-import com.spread.ydy.algorithms.utils.In;
-import com.spread.ydy.algorithms.utils.StdIn;
-import com.spread.ydy.algorithms.utils.StdOut;
-
-public class BinarySearch {
+public class BinarySearchSelf {
     private static final int SIZE = 4096;
-    public static int rank(int key, int[] a) {
-        int lo = 0;
-        int hi = a.length - 1;
-        while (lo <= hi) {
-            int mid = lo + (hi - lo) / 2;
-            if (key < a[mid])
-                hi = mid - 1;
-            else if (key > a[mid])
-                lo = mid + 1;
-            else
-                return mid;
-        }
-        return -1;
-    }
+//    public static int rank(int key, int[] a) {
+//        int lo = 0;
+//        int hi = a.length - 1;
+//        while (lo <= hi) {
+//            int mid = lo + (hi - lo) / 2;
+//            if (key < a[mid])
+//                hi = mid - 1;
+//            else if (key > a[mid])
+//                lo = mid + 1;
+//            else
+//                return mid;
+//        }
+//        return -1;
+//    }
 
     public static void main(String[] args) {
 
-        In in  = new In();
-        int[] whitelist = in.readAllInts();//readInts(args[0]);
-        Arrays.sort(whitelist);
-        while (!StdIn.isEmpty()) {
-            int key = StdIn.readInt();
-            if (rank(key, whitelist) == -1)
-                StdOut.println(key);
-        }
-        /*
+//        In in  = new In();
+//        int[] whitelist = in.readAllInts();//readInts(args[0]);
+//        Arrays.sort(whitelist);
+//        while (!StdIn.isEmpty()) {
+//            int key = StdIn.readInt();
+//            if (rank(key, whitelist) == -1)
+//                StdOut.println(key);
+//        }
         File numFile = new File("D:\\workspace\\github\\Test\\src\\com\\spread\\ydy\\algorithms\\ch01\\numberList.txt");
 
         FileInputStream fis = null;
@@ -95,7 +96,6 @@ public class BinarySearch {
         } else {
             System.out.println(index);
         }
-        */
     }
 
     public static int binarySearch(int key, int[] a) {
