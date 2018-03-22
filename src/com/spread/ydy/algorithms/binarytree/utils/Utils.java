@@ -7,13 +7,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
-import com.spread.ydy.algorithms.binarytree.BinaryTree.TreeNode;
+import com.spread.ydy.algorithms.binarytree.structure.BinaryTree;
+import com.spread.ydy.algorithms.binarytree.structure.TreeNode;
 
 
 public class Utils {
 
     public static void visit(TreeNode node) {
-        System.out.print(node.getVal() + " ");
+        System.out.print(node.getValue() + " ");
     }
 
     /**
@@ -61,7 +62,7 @@ public class Utils {
         while (!treeStack.isEmpty()) {
             TreeNode tempNode = treeStack.pop();
             if (tempNode != null) {
-                resultList.add(tempNode.getVal());// 访问根节点
+                resultList.add(tempNode.getValue());// 访问根节点
                 treeStack.push(tempNode.getRight()); // 入栈右孩子
                 treeStack.push(tempNode.getLeft());// 入栈左孩子
             }
@@ -83,7 +84,7 @@ public class Utils {
                 cur = cur.getLeft();
             }
             cur = stack.pop();
-            list.add(cur.getVal());
+            list.add(cur.getValue());
             cur = cur.getRight();
         }
 
@@ -100,12 +101,33 @@ public class Utils {
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             if (node != null) {
-                ret.add(node.getVal());
+                ret.add(node.getValue());
                 stack.push(node.getLeft());
                 stack.push(node.getRight());
             }
         }
         Collections.reverse(ret);
         return ret;
+    }
+
+    public static void buildTree(BinaryTree bt, TreeNode tn, int data) {
+        TreeNode tnData = new TreeNode(data);
+        if (null == bt.getRoot()) {
+        	bt.setRoot(tnData);
+        } else {
+            if (data < tn.getValue()) {
+                if (null == tn.getLeft()) {
+                    tn.setLeft(tnData);
+                } else {
+                    buildTree(bt, tn.getLeft(), data);
+                }
+            } else {
+                if (null == tn.getRight()) {
+                    tn.setRight( tnData);
+                } else {
+                    buildTree(bt, tn.getRight(), data);
+                }
+            }
+        }
     }
 }
