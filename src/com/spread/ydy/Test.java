@@ -2,12 +2,21 @@ package com.spread.ydy;
 
 import java.util.ArrayList;
 import java.util.Collections;
+<<<<<<< HEAD
 import java.util.Iterator;
+=======
+>>>>>>> branch 'HEAD' of https://github.com/devinyeen/Test.git
 import java.util.List;
 import java.util.Stack;
 
 public class Test<E> {
 
+<<<<<<< HEAD
+=======
+    // private static String mQuery = "abc defg hijkl";
+    // private static String SPACE = " ";
+
+>>>>>>> branch 'HEAD' of https://github.com/devinyeen/Test.git
     public static void main(String[] args) {
 
         BinaryTree bt = new BinaryTree();
@@ -23,6 +32,7 @@ public class Test<E> {
 
         Utils.inOrderCru(bt.getRoot());
         System.out.println();
+<<<<<<< HEAD
         System.out.println(Utils.inOrderNormal(bt.getRoot()));
         System.out.println();
         System.out.println();
@@ -31,6 +41,13 @@ public class Test<E> {
         System.out.println();
         System.out.println(Utils.postOrderNormal(bt.getRoot()));
         System.out.println();
+=======
+        System.out.println(BinaryTree.inOrderNormal(bt.getRoot()));
+        System.out.println();
+        BinaryTree.postOrderCru(bt.getRoot());
+        System.out.println();
+        System.out.println(BinaryTree.postOrderNormal(bt.getRoot()));
+>>>>>>> branch 'HEAD' of https://github.com/devinyeen/Test.git
     }
 
 }
@@ -149,8 +166,141 @@ class BinaryTree {
         return mRoot;
     }
 
+<<<<<<< HEAD
     public void setRoot(TreeNode mRoot) {
         this.mRoot = mRoot;
+=======
+    public void buildTree(TreeNode tn, int data) {
+        TreeNode tnT = new TreeNode(data);
+        if (null == root) {
+            root = tnT;
+        } else {
+            if (data < tn.getValue()) {
+                if (null == tn.getLeft()) {
+                    tn.left = tnT;
+                } else {
+                    buildTree(tn.getLeft(), data);
+                }
+            } else {
+                if (null == tn.getRight()) {
+                    tn.right = tnT;
+                } else {
+                    buildTree(tn.getRight(), data);
+                }
+            }
+        }
+    }
+
+    public class TreeNode {
+
+        private int value;
+
+        public int getValue() {
+            return value;
+        }
+
+        public TreeNode getLeft() {
+            return left;
+        }
+
+        public TreeNode getRight() {
+            return right;
+        }
+
+        private TreeNode left;
+        private TreeNode right;
+
+        public TreeNode(int value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(this.value);
+        }
+
+    }
+
+    public static void visit(TreeNode tn) {
+        System.out.print(tn.getValue() + ", ");
+    }
+
+    public static void preOrderCru(TreeNode tn) {
+        if (tn == null)
+            return;
+        visit(tn);
+        preOrderCru(tn.getLeft());
+        preOrderCru(tn.getRight());
+    }
+
+    public static List<Integer> preOrderNormal(TreeNode tn) {
+        List<Integer> results = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(tn);
+        while (!stack.isEmpty()) {
+            TreeNode tnT = stack.pop();
+            if (null != tnT) {
+                results.add(tnT.getValue());
+                stack.push(tnT.getRight());
+                stack.push(tnT.getLeft());
+            }
+        }
+
+        return results;
+    }
+
+    public static void inOrderCru(TreeNode tn) {
+        if (null == tn)
+            return;
+        inOrderCru(tn.getLeft());
+        visit(tn);
+        inOrderCru(tn.getRight());
+    }
+
+    public static List<Integer> inOrderNormal(TreeNode tn) {
+        List<Integer> results = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode tnCur = tn;
+
+        while(!(tnCur == null && stack.empty())) {
+            while(tnCur != null) {
+                stack.push(tnCur);
+                tnCur = tnCur.getLeft();
+            }
+            tnCur = stack.pop();
+            results.add(tnCur.getValue());
+            tnCur = tnCur.getRight();
+        }
+
+        return results;
+    }
+
+    public static void postOrderCru(TreeNode tn) {
+        if (null == tn)
+            return;
+        postOrderCru(tn.getLeft());
+        postOrderCru(tn.getRight());
+        visit(tn);
+>>>>>>> branch 'HEAD' of https://github.com/devinyeen/Test.git
+    }
+
+    public static List<Integer> postOrderNormal(TreeNode tn) {
+        List<Integer> results = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if (tn == null)
+            return results;
+        stack.push(tn);
+
+        while (!stack.isEmpty()) {
+            tn = stack.pop();
+            if (null != tn) {
+                results.add(tn.getValue());
+                stack.push(tn.getLeft());
+                stack.push(tn.getRight());
+            }
+        }
+        Collections.reverse(results);
+        return results;
     }
 }
 
