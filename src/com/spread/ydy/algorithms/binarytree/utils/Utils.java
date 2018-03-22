@@ -95,7 +95,7 @@ public class Utils {
      * 非递归后序遍历
      */
     public static List<Integer> postorderTraversal(TreeNode root) {
-        Deque<TreeNode> stack = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
         List<Integer> ret = new ArrayList<>();
         while (!stack.isEmpty()) {

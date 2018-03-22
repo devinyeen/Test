@@ -1,13 +1,14 @@
 package com.spread.ydy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
 public class Test<E> {
 
-//    private static String mQuery = "abc defg hijkl";
-//    private static String SPACE  = " ";
+    // private static String mQuery = "abc defg hijkl";
+    // private static String SPACE = " ";
 
     public static void main(String[] args) {
         // String[] querySplit = mQuery.split(SPACE);
@@ -156,7 +157,11 @@ public class Test<E> {
         System.out.println();
         BinaryTree.inOrderCru(bt.getRoot());
         System.out.println();
+        System.out.println(BinaryTree.inOrderNormal(bt.getRoot()));
+        System.out.println();
         BinaryTree.postOrderCru(bt.getRoot());
+        System.out.println();
+        System.out.println(BinaryTree.postOrderNormal(bt.getRoot()));
     }
 
     // public static <T> T compare(T t1,T t2){
@@ -284,7 +289,7 @@ class BinaryTree {
     }
 
     public static void visit(TreeNode tn) {
-        System.out.print(tn.getValue() + " ");
+        System.out.print(tn.getValue() + ", ");
     }
 
     public static void preOrderCru(TreeNode tn) {
@@ -299,7 +304,7 @@ class BinaryTree {
         List<Integer> results = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         stack.push(tn);
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             TreeNode tnT = stack.pop();
             if (null != tnT) {
                 results.add(tnT.getValue());
@@ -322,13 +327,18 @@ class BinaryTree {
     public static List<Integer> inOrderNormal(TreeNode tn) {
         List<Integer> results = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
-        if (null == tn)
-            return results;
-        stack.push(tn);
-        while(tn.getLeft() != null) {
-            tn = tn.getLeft();
-            stack.push(tn);
+        TreeNode tnCur = tn;
+
+        while(!(tnCur == null && stack.empty())) {
+            while(tnCur != null) {
+                stack.push(tnCur);
+                tnCur = tnCur.getLeft();
+            }
+            tnCur = stack.pop();
+            results.add(tnCur.getValue());
+            tnCur = tnCur.getRight();
         }
+
         return results;
     }
 
@@ -338,6 +348,25 @@ class BinaryTree {
         postOrderCru(tn.getLeft());
         postOrderCru(tn.getRight());
         visit(tn);
+    }
+
+    public static List<Integer> postOrderNormal(TreeNode tn) {
+        List<Integer> results = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack<>();
+        if (tn == null)
+            return results;
+        stack.push(tn);
+
+        while (!stack.isEmpty()) {
+            tn = stack.pop();
+            if (null != tn) {
+                results.add(tn.getValue());
+                stack.push(tn.getLeft());
+                stack.push(tn.getRight());
+            }
+        }
+        Collections.reverse(results);
+        return results;
     }
 }
 
