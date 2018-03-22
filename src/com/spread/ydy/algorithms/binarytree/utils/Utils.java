@@ -10,7 +10,6 @@ import java.util.Stack;
 import com.spread.ydy.algorithms.binarytree.structure.BinaryTree;
 import com.spread.ydy.algorithms.binarytree.structure.TreeNode;
 
-
 public class Utils {
 
     public static void visit(TreeNode node) {
@@ -113,7 +112,7 @@ public class Utils {
     public static void buildTree(BinaryTree bt, TreeNode tn, int data) {
         TreeNode tnData = new TreeNode(data);
         if (null == bt.getRoot()) {
-        	bt.setRoot(tnData);
+            bt.setRoot(tnData);
         } else {
             if (data < tn.getValue()) {
                 if (null == tn.getLeft()) {
@@ -123,7 +122,7 @@ public class Utils {
                 }
             } else {
                 if (null == tn.getRight()) {
-                    tn.setRight( tnData);
+                    tn.setRight(tnData);
                 } else {
                     buildTree(bt, tn.getRight(), data);
                 }

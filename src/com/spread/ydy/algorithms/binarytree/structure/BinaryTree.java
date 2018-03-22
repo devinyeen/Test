@@ -5,10 +5,10 @@ public class BinaryTree {
     private TreeNode root;
 
     public void setRoot(TreeNode root) {
-		this.root = root;
-	}
+        this.root = root;
+    }
 
-	public TreeNode getRoot() {
+    public TreeNode getRoot() {
         return root;
     }
 

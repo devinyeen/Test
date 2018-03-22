@@ -1,21 +1,21 @@
 package com.spread.ydy.algorithms.binarytree.structure;
 
-
 public class TreeNode {
     private int mValue;
+
     public void setValue(int mValue) {
-		this.mValue = mValue;
-	}
+        this.mValue = mValue;
+    }
 
-	public void setLeft(TreeNode mLeft) {
-		this.mLeft = mLeft;
-	}
+    public void setLeft(TreeNode mLeft) {
+        this.mLeft = mLeft;
+    }
 
-	public void setRight(TreeNode mRight) {
-		this.mRight = mRight;
-	}
+    public void setRight(TreeNode mRight) {
+        this.mRight = mRight;
+    }
 
-	private TreeNode mLeft;
+    private TreeNode mLeft;
     private TreeNode mRight;
 
     public int getValue() {
