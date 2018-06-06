@@ -10,10 +10,12 @@ public class TestJava8 {
         
     }
 
-    public static List<Apple> filterGreenApples(List<Apple> inventory) {
+    //public static List<Apple> filterGreenApples(List<Apple> inventory) {
+    public static List<Apple> filterGreenApples(List<Apple> inventory, String color) {
         List<Apple> result = new ArrayList<Apple>();
         for (Apple apple : result) {
-            if ("green".equals(apple.getColor())) {
+            //if ("green".equals(apple.getColor())) {
+            if (color.equals(apple.getColor())) {
                 result.add(apple);
             }
         }
