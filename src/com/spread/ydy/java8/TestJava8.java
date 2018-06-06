@@ -42,6 +42,13 @@ public class TestJava8 {
         }
     }
 
+    public class AppleRedAndHeavyPredicate implements ApplePredicate {
+        @Override
+        public boolean test(Apple apple) {
+            return apple.getColor().equals("red") && apple.getWeight()>150;
+        }
+    }
+
     public static class Apple {
       private int weight = 0;
       private String color = "";
