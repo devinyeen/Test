@@ -1,4 +1,4 @@
-package com.spread.ydy.algorithms.packages;
+package com.spread.ydy.algorithms.sort;
 
 import java.util.ArrayList;
 import java.util.Arrays;
