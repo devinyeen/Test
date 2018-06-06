@@ -11,15 +11,35 @@ public class TestJava8 {
     }
 
     //public static List<Apple> filterGreenApples(List<Apple> inventory) {
-    public static List<Apple> filterGreenApples(List<Apple> inventory, String color) {
+    //public static List<Apple> filterGreenApples(List<Apple> inventory, String color) {
+    public static List<Apple> filterGreenApples(List<Apple> inventory, ApplePredicate p) {
         List<Apple> result = new ArrayList<Apple>();
         for (Apple apple : result) {
             //if ("green".equals(apple.getColor())) {
-            if (color.equals(apple.getColor())) {
+            //if (color.equals(apple.getColor())) {
+            if (p.test(apple)) {
                 result.add(apple);
             }
         }
         return result;
+    }
+
+    public interface ApplePredicate{
+        boolean test(Apple apple);
+    }
+
+    public class AppleHeavyWeightPredicate implements ApplePredicate {
+        @Override
+        public boolean test(Apple apple) {
+            return apple.getWeight() > 150;
+        }
+    }
+
+    public class AppleGreenColorPredicate implements ApplePredicate {
+        @Override
+        public boolean test(Apple apple) {
+            return apple.getColor().equals("green");
+        }
     }
 
     public static class Apple {
@@ -52,6 +72,6 @@ public class TestJava8 {
                  "color='" + color + '\'' +
                  ", weight=" + weight +
                  '}';
-      }
+}
   }
 }
