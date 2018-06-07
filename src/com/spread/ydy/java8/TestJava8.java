@@ -1,7 +1,6 @@
 package com.spread.ydy.java8;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class TestJava8 {
@@ -11,8 +10,7 @@ public class TestJava8 {
     }
 
     // public static List<Apple> filterGreenApples(List<Apple> inventory) {
-    // public static List<Apple> filterGreenApples(List<Apple> inventory, String
-    // color) {
+    // public static List<Apple> filterGreenApples(List<Apple> inventory, String color) {
     public static List<Apple> filterGreenApples(List<Apple> inventory, ApplePredicate p) {
         List<Apple> result = new ArrayList<Apple>();
         for (Apple apple : result) {
