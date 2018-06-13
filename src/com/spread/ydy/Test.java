@@ -5,39 +5,210 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
+import com.spread.ydy.algorithms.ch01.Counter;
+import com.spread.ydy.algorithms.ch01.Interval1D;
+import com.spread.ydy.algorithms.ch01.Interval2D;
+import com.spread.ydy.algorithms.ch01.Point2D;
+
 public class Test<E> {
 
     public static void main(String[] args) {
 
-        BinaryTree bt = new BinaryTree();
-        int[] a = { 6, 4, 2, 1, 3, 5, 10, 8, 7, 9, 11 };
+        // BinaryTree bt = new BinaryTree();
+        // int[] a = { 6, 4, 2, 1, 3, 5, 10, 8, 7, 9, 11 };
 
-        for (int i = 0; i < a.length; i++) {
-            Utils.buildTree(bt, bt.getRoot(), a[i]);
+        // for (int i = 0; i < a.length; i++) {
+        // Utils.buildTree(bt, bt.getRoot(), a[i]);
+        // }
+        // Utils.preOrderCru(bt.getRoot());
+        // System.out.println();
+        // System.out.println(Utils.preOrderNormal(bt.getRoot()));
+        // System.out.println();
+        //
+        // Utils.inOrderCru(bt.getRoot());
+        // System.out.println();
+        // System.out.println(Utils.inOrderNormal(bt.getRoot()));
+        // System.out.println();
+        // System.out.println();
+        //
+        // Utils.postOrderCru(bt.getRoot());
+        // System.out.println();
+        // System.out.println(Utils.postOrderNormal(bt.getRoot()));
+        // System.out.println();
+        // System.out.println(BinaryTree.inOrderNormal(bt.getRoot()));
+        // System.out.println();
+        // BinaryTree.postOrderCru(bt.getRoot());
+        // System.out.println();
+        // System.out.println(BinaryTree.postOrderNormal(bt.getRoot()));
+
+        // int[] a = { 6, 4, 2, 1, 3, 5, 10, 8, 7, 9, 11 };
+        // int k = 5;
+        // if (k > a.length) return;
+        // int[] b = Arrays.copyOf(a, k);
+        // for (int i = 0; i < k; i++) {
+        // for (int j = i; j < b.length; j++) {
+        //
+        // }
+        // }
+
+        // File file = new File("C:\\Users\\devin.yin\\Desktop\\largeT.txt");
+        // System.out.println(file.exists());
+
+        // System.out.println((0+15)/2);
+        // System.out.println(1+2+"3");
+        // System.out.println('b');
+        // System.out.println('b' + 'c');
+        // System.out.println((char)('a'+4));
+
+        // long sum = 0;
+        // long start = System.currentTimeMillis();
+        // for (int i = 0; i < 100000; i++) {
+        // for (int j = 0; j < 100000; j++) {
+        // sum++;
+        // }
+        // }
+        // long end = System.currentTimeMillis();
+        // System.out.println(sum);
+        // System.out.println((end - start));
+
+        // 1.1.12 start
+        // int[] a = new int[10];
+        // for (int i = 0; i < 10; i++) {
+        // a[i] = 9-i;
+        // System.out.print(a[i]);
+        // }
+        // System.out.println();
+        // System.out.println("===================");
+        // for (int i = 0; i < 10; i++) {
+        // a[i] = a[a[i]];
+        // System.out.print(a[i]);
+        // }
+        // System.out.println();
+        // System.out.println("===================");
+        // for (int i = 0; i < 10; i++) {
+        // System.out.print(a[i]);
+        // }
+        // 1.1.12 end
+
+        // 1.1.11 start
+        // boolean[][] a = new boolean[10][10];
+        // for (int i = 0; i < a.length; i++) {
+        // for (int j = 0; j < a[i].length; j++) {
+        // a[i][j] = new Random().nextBoolean();
+        // }
+        // }
+
+        // for (int i = 0; i < a.length; i++) {
+        // for (int j = 0; j < a[i].length; j++) {
+        // if (a[i][j]) {
+        // System.out.print("* ");
+        // } else {
+        // System.out.print(" ");
+        // }
+        // }
+        // System.out.println();
+        // }
+        // System.out.println();
+        // System.out.println("=================");
+        // 1.1.11 end
+
+        // 1.1.13 start
+        // for (int i = 0; i < a.length; i++) {
+        // for (int j = 0; j < a[i].length; j++) {
+        // if (a[j][i]) {
+        // System.out.print("* ");
+        // } else {
+        // System.out.print(" ");
+        // }
+        // }
+        // System.out.println();
+        // }
+        // 1.1.13 end
+
+        // 1.1.14 start
+        // System.out.println(lg(0));
+        // System.out.println(lg(1));
+        // System.out.println(lg(2));
+        // System.out.println(lg(3));
+        // System.out.println(lg(4));
+        // System.out.println(lg(5));
+        // System.out.println(lg(6));
+        // System.out.println(lg(7));
+        // System.out.println(lg(8));
+        // System.out.println(lg(9));
+        // System.out.println(lg(10));
+        // 1.1.14 end
+
+        // 1.1.18 start
+        // System.out.println(mystery(3, 1));
+        // 1.1.18 end
+
+        // 1.1.19 start
+        // for(int i = 2; i < 100000; i++) {
+        // long a[] = new long[i];
+        // fibonacci(a);
+        // }
+        // 1.1.19 end
+
+        double xlo = Double.parseDouble(args[0]);
+        double xhi = Double.parseDouble(args[1]);
+        double ylo = Double.parseDouble(args[2]);
+        double yhi = Double.parseDouble(args[3]);
+
+        int T = Integer.parseInt(args[4]);
+
+        Interval1D xinterval = new Interval1D(xlo, xhi);
+        Interval1D yinterval = new Interval1D(ylo, yhi);
+        Interval2D box = new Interval2D(xinterval, yinterval);
+        box.draw();
+
+        Counter c = new Counter("hits");
+
+        for (int t = 0; t < T; t++) {
+            double x = Math.random();
+            double y = Math.random();
+            Point2D p = new Point2D(x, y);
+            if (box.contains(p))
+                c.increment();
+            else
+                p.draw();
         }
-        Utils.preOrderCru(bt.getRoot());
-        System.out.println();
-        System.out.println(Utils.preOrderNormal(bt.getRoot()));
-        System.out.println();
-
-        Utils.inOrderCru(bt.getRoot());
-        System.out.println();
-        System.out.println(Utils.inOrderNormal(bt.getRoot()));
-        System.out.println();
-        System.out.println();
-
-        Utils.postOrderCru(bt.getRoot());
-        System.out.println();
-        System.out.println(Utils.postOrderNormal(bt.getRoot()));
-        System.out.println();
-
-        System.out.println(BinaryTree.inOrderNormal(bt.getRoot()));
-        System.out.println();
-        BinaryTree.postOrderCru(bt.getRoot());
-        System.out.println();
-        System.out.println(BinaryTree.postOrderNormal(bt.getRoot()));
     }
 
+    public static void fibonacci(long[] a) {
+        int N = a.length;
+        a[0] = 0;
+        a[1] = 1;
+        for (int i = 2; i < N; i++)
+            a[i] = a[i - 1] + a[i - 2];
+        System.out.println(a[N - 1]);
+        return;
+    }
+
+    public static int mystery(int a, int b) {// 神秘的函数，其实就是add(a,b)函数，
+        if (b == 0)
+            return 0; // 至于题意中说的将代码中+换成*，return 0换成return 1，并没看出来啥效果
+        if (b % 2 == 0)
+            return mystery(a + a, b / 2);
+        return mystery(a + a, b / 2) + a;
+    }
+
+    public static int lg(int n) {
+        int result = 0;
+        if (n < 1) {
+            result = 0;
+        } else if (n < 3) {
+            result = 1;
+        } else {
+            for (int i = 0; i < n; i++) {
+                if ((result * result) > n) {
+                    return result - 1;
+                }
+                result++;
+            }
+        }
+        return result;
+    }
 }
 
 class Utils {
@@ -100,8 +271,8 @@ class Utils {
         Stack<TreeNode> stack = new Stack<>();
 
         TreeNode tn = root;
-        while(tn != null || !stack.isEmpty()) {
-            while(tn!=null) {
+        while (tn != null || !stack.isEmpty()) {
+            while (tn != null) {
                 stack.push(tn);
                 tn = tn.getLeft();
             }
@@ -158,22 +329,22 @@ class BinaryTree {
         this.mRoot = mRoot;
     }
 
-    public void buildTree(TreeNode tn, int data) {
+    public void buildTree(BinaryTree bt, TreeNode tn, int data) {
         TreeNode tnT = new TreeNode(data);
-        if (null == mRoot) {
-            mRoot = tnT;
+        if (null == bt.getRoot()) {
+            bt.setRoot(tnT);
         } else {
             if (data < tn.getValue()) {
                 if (null == tn.getLeft()) {
                     tn.setLeft(tnT);
                 } else {
-                    buildTree(tn.getLeft(), data);
+                    buildTree(bt, tn.getLeft(), data);
                 }
             } else {
                 if (null == tn.getRight()) {
                     tn.setRight(tnT);
                 } else {
-                    buildTree(tn.getRight(), data);
+                    buildTree(bt, tn.getRight(), data);
                 }
             }
         }
@@ -220,8 +391,8 @@ class BinaryTree {
         Stack<TreeNode> stack = new Stack<>();
         TreeNode tnCur = tn;
 
-        while(!(tnCur == null && stack.empty())) {
-            while(tnCur != null) {
+        while (!(tnCur == null && stack.empty())) {
+            while (tnCur != null) {
                 stack.push(tnCur);
                 tnCur = tnCur.getLeft();
             }

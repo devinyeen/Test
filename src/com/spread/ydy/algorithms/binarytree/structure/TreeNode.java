@@ -17,24 +17,24 @@ public class TreeNode {
         this.mRight = mRight;
     }
 
-	public int getValue() {
-		return mValue;
-	}
+    public int getValue() {
+        return mValue;
+    }
 
-	public TreeNode getLeft() {
-		return mLeft;
-	}
+    public TreeNode getLeft() {
+        return mLeft;
+    }
 
-	public TreeNode getRight() {
-		return mRight;
-	}
+    public TreeNode getRight() {
+        return mRight;
+    }
 
-	public TreeNode(int x) {
-		mValue = x;
-	}
+    public TreeNode(int x) {
+        mValue = x;
+    }
 
-	@Override
-	public String toString() {
-		return "val: " + mValue;
-	}
+    @Override
+    public String toString() {
+        return "val: " + mValue;
+    }
 }
