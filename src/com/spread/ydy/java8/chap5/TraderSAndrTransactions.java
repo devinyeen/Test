@@ -1,6 +1,7 @@
 package com.spread.ydy.java8.chap5;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class TraderSAndrTransactions {
@@ -20,6 +21,11 @@ public class TraderSAndrTransactions {
                 new Transaction(alan, 2012, 950)
                 );
         // 找出2011所有交易并按交易额排序
+        List<Transaction> tr2001 = transactions
+                .stream()
+                .filter(transaction -> transaction.getYear() == 2011)
+                .sorted(Comparator.comparing(Transaction::getValue))
+                .collect(toList());
     }
 
 }
