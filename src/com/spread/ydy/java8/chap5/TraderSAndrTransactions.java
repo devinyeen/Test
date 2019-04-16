@@ -3,6 +3,7 @@ package com.spread.ydy.java8.chap5;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TraderSAndrTransactions {
 
@@ -25,7 +26,7 @@ public class TraderSAndrTransactions {
                 .stream()
                 .filter(transaction -> transaction.getYear() == 2011)
                 .sorted(Comparator.comparing(Transaction::getValue))
-                .collect(toList());
+                .collect(Collectors.toList());
     }
 
 }
