@@ -20,8 +20,7 @@ public class TradersAndTransactions {
                 new Transaction(raoul, 2011, 400),
                 new Transaction(mario, 2012, 710),
                 new Transaction(mario, 2012, 700),
-                new Transaction(alan, 2012, 950)
-                );
+                new Transaction(alan, 2012, 950));
 
         //找出2011年的所有交易并按交易额排序(从低到高)
         List<Transaction> tr2011 = transactions.stream()
