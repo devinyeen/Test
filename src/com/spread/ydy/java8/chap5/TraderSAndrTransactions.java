@@ -1,10 +1,10 @@
 package com.spread.ydy.java8.chap5;
 
 import java.util.Arrays;
-import java.util.Comparator;
+import static java.util.Comparator.*;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+import static java.util.stream.Collectors.*;
 
 public class TraderSAndrTransactions {
 
@@ -25,15 +25,15 @@ public class TraderSAndrTransactions {
         // 5.1找出2011所有交易并按交易额排序
         List<Transaction> tr2001 = transactions.stream()
                 .filter(transaction -> transaction.getYear() == 2011)
-                .sorted(Comparator.comparing(Transaction::getValue))
-                .collect(Collectors.toList());
+                .sorted(comparing(Transaction::getValue))
+                .collect(toList());
         System.out.println(tr2001);
 
         // 5.2交易员分别都在哪些不同城市工作过
         List<String> cities = transactions.stream()
                 .map(transaction -> transaction.getTrader().getCity())
                 .distinct()
-                .collect(Collectors.toList());
+                .collect(toList());
         System.out.println(cities);
 
         // 5.3查找所有来自于剑桥的交易员 并按姓名排序
@@ -41,8 +41,8 @@ public class TraderSAndrTransactions {
                 .map(Transaction::getTrader)
                 .filter(trader->trader.getCity().equals("Cambridge"))
                 .distinct()
-                .sorted(Comparator.comparing(Trader::getName))
-                .collect(Collectors.toList());
+                .sorted(comparing(Trader::getName))
+                .collect(toList());
         System.out.println(cambridges);
 
         // 5.4.1 返回所有交易员姓名字符串 按字母顺序排序
@@ -64,7 +64,7 @@ public class TraderSAndrTransactions {
                 .map(transaction -> transaction.getTrader().getName())
                 .distinct()
                 .sorted()
-                .collect(Collectors.joining());
+                .collect(joining());
         System.out.println(traders);
 
         // 5.5 返回所有交易员姓名字符串 按字母顺序排序
@@ -85,7 +85,7 @@ public class TraderSAndrTransactions {
         System.out.println(maxTr.get());
         // 5.7.2 所有叫哟中最高的交易是多少
         Optional<Transaction> maxTr1 = transactions.stream()
-                .max(Comparator.comparing(Transaction::getValue));
+                .max(comparing(Transaction::getValue));
         System.out.println(maxTr1.get().getValue());
     }
 
