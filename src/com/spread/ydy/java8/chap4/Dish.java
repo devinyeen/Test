@@ -1,10 +1,5 @@
 package com.spread.ydy.java8.chap4;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import static java.util.stream.Collectors.*;
-
 public class Dish {
 
     private final String name;

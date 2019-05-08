@@ -1,6 +1,6 @@
 package com.spread.ydy.java8.chap6;
 
-import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.Map;
 
 import com.spread.ydy.java8.chap4.Dish;
 
-public class Dishes {
+public class DividedByPartition {
 
     public static void main(String[] args) {
         List<Dish> menu = Arrays.asList(
@@ -21,8 +21,18 @@ public class Dishes {
                 new Dish("pizza", true, 550, Dish.Type.OTHER),
                 new Dish("prawns", false, 300, Dish.Type.FISH),
                 new Dish("salmon", false, 450, Dish.Type.FISH));
-        Map<Dish.Type, List<Dish>> dishesByType = 
-                menu.stream().collect(groupingBy(Dish::getType));
-        System.out.println(dishesByType);}
+
+
+        Map<Boolean, List<Dish>> partitionedMenu =
+                menu.stream().collect(partitioningBy(Dish::isVegetarian));
+        System.out.println(partitionedMenu);
+        List<Dish> veretarianDishes = partitionedMenu.get(true);
+        System.out.println(veretarianDishes);
+        System.out.println("------------------------------------------------------------");
+        veretarianDishes =
+                menu.stream().filter(Dish::isVegetarian).collect(toList());
+        System.out.println(veretarianDishes);
+        System.out.println("------------------------------------------------------------");
+    }
 
 }
