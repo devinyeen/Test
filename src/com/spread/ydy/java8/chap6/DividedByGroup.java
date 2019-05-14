@@ -1,6 +1,6 @@
 package com.spread.ydy.java8.chap6;
 
-import static java.util.Comparator.comparingInt;
+import static java.util.Comparator.*;
 import static java.util.stream.Collectors.*;
 
 import java.util.Arrays;
