@@ -1,9 +1,10 @@
 package com.spread.ydy.java8.chap6;
 
-import static java.util.Comparator.comparingInt;
+import static java.util.Comparator.*;
 import static java.util.stream.Collectors.*;
 
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -64,6 +65,9 @@ public class DividedByPartition {
         System.out.println(diff);
         System.out.println("------------------------------------------------------------");
         System.out.println(partitionPrimes(100));
+        System.out.println("------------------------------------------------------------");
+        IntSummaryStatistics menuStatics = menu.stream().collect(summarizingInt(Dish::getCalories));
+        System.out.println(menuStatics);
     }
 
     public static boolean isPrime(int candidate) {
