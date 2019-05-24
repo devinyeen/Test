@@ -33,6 +33,10 @@ public class ToListCollector<T> implements Collector<T, List<T>, List<T>> {
         List<Dish> dishes = menu.stream().collect(new ToListCollector<>());
         System.out.println(dishes);
         System.out.println("---------------------------------------------------------------------------------");
+
+        dishes = menu.stream().collect(ArrayList::new, List::add, List::addAll);
+        System.out.println(dishes);
+        System.out.println("---------------------------------------------------------------------------------");
     }
 
     @Override
