@@ -9,37 +9,37 @@ public class TradersAndTransactions {
 
     public static void main(String[] args) {
 
-        Trader raoul = new Trader("Raoul", "Cambridge");
-        Trader mario = new Trader("Mario", "Milan");
-        Trader alan = new Trader("Alan", "Cambridge");
-        Trader brian = new Trader("Brian", "Cambridge");
+        Traders raoul = new Traders("Raoul", "Cambridge");
+        Traders mario = new Traders("Mario", "Milan");
+        Traders alan = new Traders("Alan", "Cambridge");
+        Traders brian = new Traders("Brian", "Cambridge");
 
-        List<Transaction> transactions = Arrays.asList(
-                new Transaction(brian, 2011, 300),
-                new Transaction(raoul, 2012, 1000),
-                new Transaction(raoul, 2011, 400),
-                new Transaction(mario, 2012, 710),
-                new Transaction(mario, 2012, 700),
-                new Transaction(alan, 2012, 950));
+        List<Transactions> Transactionss = Arrays.asList(
+                new Transactions(brian, 2011, 300),
+                new Transactions(raoul, 2012, 1000),
+                new Transactions(raoul, 2011, 400),
+                new Transactions(mario, 2012, 710),
+                new Transactions(mario, 2012, 700),
+                new Transactions(alan, 2012, 950));
 
         //找出2011年的所有交易并按交易额排序(从低到高)
-        List<Transaction> tr2011 = transactions.stream()
-                .filter(transaction -> transaction.getYear() == 2011)
-                .sorted(Comparator.comparing(Transaction::getValue))
+        List<Transactions> tr2011 = Transactionss.stream()
+                .filter(Transactions -> Transactions.getYear() == 2011)
+                .sorted(Comparator.comparing(Transactions::getValue))
                 .collect(Collectors.toList());
 
-        for (Transaction transaction2 : tr2011) {
-            System.out.println(transaction2);
+        for (Transactions Transactions2 : tr2011) {
+            System.out.println(Transactions2);
         }
     }
 
 }
 
-class Trader {
+class Traders {
     private final String name;
     private final String city;
 
-    public Trader(String name, String city) {
+    public Traders(String name, String city) {
         this.name = name;
         this.city = city;
     }
@@ -59,20 +59,20 @@ class Trader {
 
 }
 
-class Transaction {
-    private final Trader trader;
+class Transactions {
+    private final Traders Traders;
     private final int    year;
     private final int    value;
 
-    public Transaction(Trader trader, int year, int value) {
+    public Transactions(Traders Traders, int year, int value) {
         super();
-        this.trader = trader;
+        this.Traders = Traders;
         this.year = year;
         this.value = value;
     }
 
-    public Trader getTrader() {
-        return trader;
+    public Traders getTraders() {
+        return Traders;
     }
 
     public int getYear() {
@@ -85,7 +85,7 @@ class Transaction {
 
     @Override
     public String toString() {
-        return this.getTrader().toString() + " " + this.getYear() + " " + this.getValue();
+        return this.getTraders().toString() + " " + this.getYear() + " " + this.getValue();
     }
 
 }
