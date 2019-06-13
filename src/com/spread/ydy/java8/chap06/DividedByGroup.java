@@ -1,4 +1,4 @@
-package com.spread.ydy.java8.chap6;
+package com.spread.ydy.java8.chap06;
 
 import static java.util.Comparator.*;
 import static java.util.stream.Collectors.*;
@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
-import com.spread.ydy.java8.chap4.Dish;
+import com.spread.ydy.java8.chap04.Dish;
 
 public class DividedByGroup {
 

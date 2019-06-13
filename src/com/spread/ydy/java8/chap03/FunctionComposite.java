@@ -1,4 +1,4 @@
-package com.spread.ydy.java8.chap3;
+package com.spread.ydy.java8.chap03;
 
 import java.util.function.Function;
 

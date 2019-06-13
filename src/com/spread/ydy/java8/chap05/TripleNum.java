@@ -1,4 +1,4 @@
-package com.spread.ydy.java8.chap5;
+package com.spread.ydy.java8.chap05;
 
 import java.util.stream.IntStream;
 import java.util.stream.Stream;

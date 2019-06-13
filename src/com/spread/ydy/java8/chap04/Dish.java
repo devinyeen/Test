@@ -1,4 +1,4 @@
-package com.spread.ydy.java8.chap4;
+package com.spread.ydy.java8.chap04;
 
 public class Dish {
 

@@ -1,4 +1,4 @@
-package com.spread.ydy.java8.chap1;
+package com.spread.ydy.java8.chap01;
 
 import java.util.*;
 import java.util.function.Predicate;

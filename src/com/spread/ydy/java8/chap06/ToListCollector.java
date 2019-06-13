@@ -1,4 +1,4 @@
-package com.spread.ydy.java8.chap6;
+package com.spread.ydy.java8.chap06;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +12,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collector;
 
-import com.spread.ydy.java8.chap4.Dish;
+import com.spread.ydy.java8.chap04.Dish;
 
 import static java.util.stream.Collector.Characteristics.*;
 

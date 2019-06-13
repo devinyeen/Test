@@ -1,4 +1,4 @@
-package com.spread.ydy.java8.chap7;
+package com.spread.ydy.java8.chap07;
 
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
@@ -38,7 +38,7 @@ public class ForkJoinSumCalculator extends RecursiveTask<Long> {
         }
         // 创建子任务为数组的前一半求和
         ForkJoinSumCalculator leftTask = new ForkJoinSumCalculator(numbers, start, start + length / 2);
-        // 利用forkjoinpool线程异步执行新创建的子任务
+        // 利用forkjoinpool 线程异步执行新创建的子任务
         leftTask.fork();
         // 创建一个子任务用于为数组后半部分求和
         ForkJoinSumCalculator rightTask = new ForkJoinSumCalculator(numbers, start + length / 2, end);
@@ -71,5 +71,6 @@ public class ForkJoinSumCalculator extends RecursiveTask<Long> {
 
     public static void main(String[] args) {
         System.out.println(forkJoinSum(100));
+        System.out.println("In " + ParallelStream.measureSumPerf(ForkJoinSumCalculator::forkJoinSum,  10_000_000) + " msecs");
     }
 }

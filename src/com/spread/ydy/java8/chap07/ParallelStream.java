@@ -1,4 +1,4 @@
-package com.spread.ydy.java8.chap7;
+package com.spread.ydy.java8.chap07;
 
 import java.util.function.Function;
 import java.util.stream.LongStream;

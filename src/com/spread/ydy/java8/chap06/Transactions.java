@@ -1,4 +1,4 @@
-package com.spread.ydy.java8.chap6;
+package com.spread.ydy.java8.chap06;
 
 import java.util.Arrays;
 import java.util.List;
