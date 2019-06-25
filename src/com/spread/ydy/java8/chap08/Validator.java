@@ -1,4 +1,4 @@
-package com.spread.ydy.java8.chap8;
+package com.spread.ydy.java8.chap08;
 
 public class Validator {
 
