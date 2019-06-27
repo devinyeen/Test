@@ -1,4 +1,4 @@
-package com.spread.ydy.java8.chap08;
+package com.spread.ydy.java8.chap09;
 
 public class C implements B, A {
 
