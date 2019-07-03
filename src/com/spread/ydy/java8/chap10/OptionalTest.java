@@ -44,6 +44,10 @@ public class OptionalTest {
                 .flatMap(Insurance::getRepresent)
                 .map(Represent::getName)
                 .orElse("Unknown"));
+
+        Optional.of(represent)
+                .filter(rep -> "Rep".equals(represent.getName()))
+                .ifPresent(x -> System.out.println("ok"));
     }
 
 }
