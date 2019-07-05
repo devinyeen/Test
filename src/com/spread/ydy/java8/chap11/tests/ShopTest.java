@@ -1,10 +1,13 @@
-package com.spread.ydy.java8.chap11;
+package com.spread.ydy.java8.chap11.tests;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+
 import org.junit.Test;
 
-public class FutureDemo {
+import com.spread.ydy.java8.chap11.Shop;
+
+public class ShopTest {
 
     /**
      * 测试同步API
