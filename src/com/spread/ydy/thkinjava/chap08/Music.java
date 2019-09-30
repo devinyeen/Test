@@ -2,23 +2,9 @@
 // Inheritance & upcasting.
 package com.spread.ydy.thkinjava.chap08;
 
-import static com.spread.ydy.thkinjava.utils.Print.print;
-
-enum Note {
-    MIDDLE_C, C_SHARP, B_FLAT;
-}
-
-class Instrument {
-    public void play(Note n) {
-        print("Instrument.play()");
-    }
-}
-
-class Wind extends Instrument {
-    public void play(Note n) {
-        System.out.println("Wind.play() " + n);
-    }
-}
+import com.spread.ydy.thkinjava.chap08.utils.Instrument;
+import com.spread.ydy.thkinjava.chap08.utils.Note;
+import com.spread.ydy.thkinjava.chap08.utils.Wind;;
 
 public class Music {
     public static void tune(Instrument i) {
@@ -29,6 +15,6 @@ public class Music {
         Wind flute = new Wind();
         tune(flute);
     }
-} /* Output:
-Wind.play() MIDDLE_C
-*///:~
+} /*
+   * Output: Wind.play() MIDDLE_C
+   */// :~
