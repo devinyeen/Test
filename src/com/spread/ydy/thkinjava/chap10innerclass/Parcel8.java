@@ -1,6 +1,6 @@
 package com.spread.ydy.thkinjava.chap10innerclass;
 
-import com.spread.ydy.thkinjava.chap10.interfaces.Wrapping;
+import com.spread.ydy.thkinjava.chap10innerclass.interfaces.Wrapping;
 
 //: innerclasses/Parcel8.java
 // Calling the base-class constructor.

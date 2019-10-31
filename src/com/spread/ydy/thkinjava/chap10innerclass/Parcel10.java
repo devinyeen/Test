@@ -1,6 +1,6 @@
 package com.spread.ydy.thkinjava.chap10innerclass;
 
-import com.spread.ydy.thkinjava.chap10.interfaces.Destination;
+import com.spread.ydy.thkinjava.chap10innerclass.interfaces.Destination;
 
 //: innerclasses/Parcel10.java
 // Using "instance initialization" to perform

@@ -3,9 +3,9 @@
 package com.spread.ydy.thkinjava.chap08multiform;
 import static com.spread.ydy.thkinjava.utils.Print.print;
 
-import com.spread.ydy.thkinjava.chap08.utils.Brass;
-import com.spread.ydy.thkinjava.chap08.utils.Note;
-import com.spread.ydy.thkinjava.chap08.utils.Instrument;
+import com.spread.ydy.thkinjava.chap08multiform.utils.Brass;
+import com.spread.ydy.thkinjava.chap08multiform.utils.Note;
+import com.spread.ydy.thkinjava.chap08multiform.utils.Instrument;
 
 public class Music2 {
     public static void tune(Wind i) {

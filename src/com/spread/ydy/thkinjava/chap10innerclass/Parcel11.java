@@ -1,7 +1,7 @@
 package com.spread.ydy.thkinjava.chap10innerclass;
 
-import com.spread.ydy.thkinjava.chap10.interfaces.Contents;
-import com.spread.ydy.thkinjava.chap10.interfaces.Destination;
+import com.spread.ydy.thkinjava.chap10innerclass.interfaces.Contents;
+import com.spread.ydy.thkinjava.chap10innerclass.interfaces.Destination;
 
 //: innerclasses/Parcel11.java
 // Nested classes (static inner classes).

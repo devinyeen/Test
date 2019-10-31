@@ -2,9 +2,9 @@
 // Inheritance & upcasting.
 package com.spread.ydy.thkinjava.chap08multiform;
 
-import com.spread.ydy.thkinjava.chap08.utils.Instrument;
-import com.spread.ydy.thkinjava.chap08.utils.Note;
-import com.spread.ydy.thkinjava.chap08.utils.Wind;;
+import com.spread.ydy.thkinjava.chap08multiform.utils.Instrument;
+import com.spread.ydy.thkinjava.chap08multiform.utils.Note;
+import com.spread.ydy.thkinjava.chap08multiform.utils.Wind;;
 
 public class Music {
     public static void tune(Instrument i) {

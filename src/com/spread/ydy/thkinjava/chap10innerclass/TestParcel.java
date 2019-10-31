@@ -1,7 +1,7 @@
 package com.spread.ydy.thkinjava.chap10innerclass;
 
-import com.spread.ydy.thkinjava.chap10.interfaces.Contents;
-import com.spread.ydy.thkinjava.chap10.interfaces.Destination;
+import com.spread.ydy.thkinjava.chap10innerclass.interfaces.Contents;
+import com.spread.ydy.thkinjava.chap10innerclass.interfaces.Destination;
 
 //私有内部类实现公有接口对外隐藏实现细节
 class Parcel4 {

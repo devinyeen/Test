@@ -3,7 +3,7 @@
 package com.spread.ydy.thkinjava.chap08multiform;
 import static com.spread.ydy.thkinjava.utils.Print.print;
 
-import com.spread.ydy.thkinjava.chap08.utils.Note;
+import com.spread.ydy.thkinjava.chap08multiform.utils.Note;
 
 class Instrument {
     void play(Note n) { print("Instrument.play() " + n); }

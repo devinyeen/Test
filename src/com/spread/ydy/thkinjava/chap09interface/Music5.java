@@ -4,7 +4,7 @@ package com.spread.ydy.thkinjava.chap09interface;
 
 import static com.spread.ydy.thkinjava.utils.Print.print;
 
-import com.spread.ydy.thkinjava.chap08.utils.Note;
+import com.spread.ydy.thkinjava.chap08multiform.utils.Note;
 
 interface Instruments {
     // Compile-time constant:
