@@ -1,14 +1,12 @@
 package com.spread.ydy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
-
-import com.spread.ydy.algorithms.ch01.Counter;
-import com.spread.ydy.algorithms.ch01.Interval1D;
-import com.spread.ydy.algorithms.ch01.Interval2D;
-import com.spread.ydy.algorithms.ch01.Point2D;
 
 public class Test<E> {
 
@@ -174,12 +172,16 @@ public class Test<E> {
 //                p.draw();
 //        }
 
-        String title = " 丰富的";
-        title = title.trim();
-        for (int i = 0; i < title.length(); i++) {
-            System.out.println(title.charAt(i));
+//        String title = " 丰富的";
+//        title = title.trim();
+//        for (int i = 0; i < title.length(); i++) {
+//            System.out.println(title.charAt(i));
+//        }
+//        System.out.println(cnToUnicode(title));
+        ReversibleArrayList<String> ra = new ReversibleArrayList<>(Arrays.asList("To be or not to be".split(" ")));
+        for (String s : ra.reversed()) {
+            System.out.println(s);
         }
-        System.out.println(cnToUnicode(title));
     }
 
     private static String cnToUnicode(String cn) {
@@ -497,4 +499,34 @@ class TreeNode {
         this.mRight = mRight;
     }
 
+}
+
+class ReversibleArrayList<T> extends ArrayList<T> {
+    public ReversibleArrayList(Collection<T> c) {super(c);};
+    public Iterable<T> reversed() {
+        return new Iterable<T>() {
+
+            @Override
+            public Iterator<T> iterator() {
+                return new Iterator<T>() {
+
+                    int current = size() - 1;
+                    @Override
+                    public boolean hasNext() {
+                        return current > -1;
+                    }
+
+                    @Override
+                    public T next() {
+                        return get(current--);
+                    }
+
+                    @Override
+                    public void remove() {
+                        throw new UnsupportedOperationException();
+                    }
+                };
+            }
+        };
+    }
 }

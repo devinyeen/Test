@@ -2,7 +2,7 @@ package com.spread.ydy.thkinjava.chap07inherit;
 
 //: reusing/Beetle.java
 // The full process of initialization.
-import static com.spread.ydy.thkinjava.utils.Print.*;
+import static com.spread.ydy.thkinjava.utils.Print.print;
 
 class Insect {
     private int i = 9;
