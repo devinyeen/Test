@@ -2,7 +2,7 @@ package com.spread.ydy.thkinjava.chap11holdobjects;
 
 //: holding/IterableClass.java
 // Anything Iterable works with foreach.
-import java.util.*;
+import java.util.Iterator;
 
 // 实现 Iterable 接口，可以被用在foreach循环
 public class IterableClass implements Iterable<String> {
