@@ -11,7 +11,7 @@ public class Conversion {
         char u = 'a';
         System.out.println("u = 'a'");
         f.format("s: %s\n", u);
-        // f.format("d: %d\n", u);
+//        f.format("d: %d\n", u);
         f.format("c: %c\n", u);
         f.format("b: %b\n", u);
         // f.format("f: %f\n", u);
