@@ -35,7 +35,7 @@ public class BinarySearchSelf {
 //            if (rank(key, whitelist) == -1)
 //                StdOut.println(key);
 //        }
-        File numFile = new File("D:\\workspace\\github\\Test\\src\\com\\spread\\ydy\\algorithms\\ch01\\numberList.txt");
+        File numFile = new File("src\\com\\spread\\ydy\\algorithms\\ch01\\numberList.txt");
 
         FileInputStream fis = null;
         String strList = "";

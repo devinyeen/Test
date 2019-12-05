@@ -1,7 +1,7 @@
 package com.spread.ydy;
 
+import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
@@ -178,9 +178,13 @@ public class Test<E> {
 //            System.out.println(title.charAt(i));
 //        }
 //        System.out.println(cnToUnicode(title));
-        ReversibleArrayList<String> ra = new ReversibleArrayList<>(Arrays.asList("To be or not to be".split(" ")));
-        for (String s : ra.reversed()) {
-            System.out.println(s);
+//        ReversibleArrayList<String> ra = new ReversibleArrayList<>(Arrays.asList("To be or not to be".split(" ")));
+//        for (String s : ra.reversed()) {
+//            System.out.println(s);
+//        }
+        File[] files = new File(".").listFiles();
+        for (File file : files) {
+            System.out.println(file.getPath());
         }
     }
 

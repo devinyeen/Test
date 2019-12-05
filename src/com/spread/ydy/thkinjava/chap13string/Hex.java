@@ -23,7 +23,7 @@ public class Hex {
     public static void main(String[] args) throws Exception {
         if (args.length == 0)
             // Test by displaying this class file:
-            System.out.println(format(BinaryFile.read("E:\\personal\\github\\Test\\Test\\bin\\com\\spread\\ydy\\thkinjava\\chap13string\\Hex.class")));
+            System.out.println(format(BinaryFile.read("bin\\com\\spread\\ydy\\thkinjava\\chap13string\\Hex.class")));
         else
             System.out.println(format(BinaryFile.read(new File(args[0]))));
     }
