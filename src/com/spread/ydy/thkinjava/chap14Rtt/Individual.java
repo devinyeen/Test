@@ -44,6 +44,13 @@ public class Individual implements Comparable<Individual> {
         }
         return (arg.id < id ? -1 : (arg.id == id ? 0 : 1));
     }
+
+    public static void main(String[] args) {
+        Class<?> subClass = Person.class;
+        System.out.println(subClass.getSuperclass());
+        subClass = Individual.class;
+        System.out.println(subClass.getSuperclass());
+    }
 } ///:~
 
 class Person extends Individual {
