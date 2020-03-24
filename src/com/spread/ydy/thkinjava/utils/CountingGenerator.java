@@ -1,6 +1,6 @@
 //: net/mindview/util/CountingGenerator.java
 // Simple generator implementations.
-package com.spread.ydy.thkinjava.chap15Generic;
+package com.spread.ydy.thkinjava.utils;
 
 public class CountingGenerator {
     public static class Boolean implements Generator<java.lang.Boolean> {
@@ -20,7 +20,7 @@ public class CountingGenerator {
         }
     }
 
-    static char[] chars = ("abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ").toCharArray();
+    public static char[] chars = ("abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ").toCharArray();
 
     public static class Character implements Generator<java.lang.Character> {
         int index = -1;
@@ -33,7 +33,7 @@ public class CountingGenerator {
 
     public static class String implements Generator<java.lang.String> {
         private int length = 7;
-        Generator<java.lang.Character> cg = new Character();
+        public Generator<java.lang.Character> cg = new Character();
 
         public String() {}
 
