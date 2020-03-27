@@ -1,6 +1,6 @@
 //: net/mindview/util/RandomGenerator.java
 // Generators that produce random values.
-package com.spread.ydy.thkinjava.chap16Arrays;
+package com.spread.ydy.thkinjava.utils;
 import java.util.Random;
 
 import com.spread.ydy.thkinjava.utils.CountingGenerator;

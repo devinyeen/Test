@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.spread.ydy.thkinjava.utils.Generator;
+
 interface Addable<T> {
     void add(T t);
 }

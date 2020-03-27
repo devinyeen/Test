@@ -1,5 +1,8 @@
 package com.spread.ydy.thkinjava.chap15Generic;
 
+import com.spread.ydy.thkinjava.utils.Generator;
+import com.spread.ydy.thkinjava.utils.RandomGenerator;
+
 // Fill an array using a generator:
 class FArray {
   public static <T> T[] fill(T[] a, Generator<T> gen) {

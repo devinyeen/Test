@@ -1,13 +1,14 @@
 package com.spread.ydy.thkinjava.chap16Arrays;
 
-import static com.spread.ydy.thkinjava.utils.Print.print;
-
 //: arrays/TestArrayGeneration.java
 // Test the tools that use generators to fill arrays.
+import static com.spread.ydy.thkinjava.utils.Print.print;
+
 import java.util.Arrays;
 
 import com.spread.ydy.thkinjava.utils.ConvertTo;
 import com.spread.ydy.thkinjava.utils.Generated;
+import com.spread.ydy.thkinjava.utils.RandomGenerator;
 
 public class TestArrayGeneration {
     public static void main(String[] args) {

@@ -1,7 +1,6 @@
 package com.spread.ydy.thkinjava.chap16Arrays;
 
-//: arrays/RandomGeneratorsTest.java
-import static com.spread.ydy.thkinjava.utils.Print.print;
+import com.spread.ydy.thkinjava.utils.RandomGenerator;
 
 public class RandomGeneratorsTest {
     public static void main(String[] args) {
