@@ -182,10 +182,31 @@ public class Test<E> {
 //        for (String s : ra.reversed()) {
 //            System.out.println(s);
 //        }
-        File[] files = new File(".").listFiles();
-        for (File file : files) {
-            System.out.println(file.getPath());
-        }
+//        File[] files = new File(".").listFiles();
+//        for (File file : files) {
+//            System.out.println(file.getPath());
+//        }
+        System.out.println("Start");
+        printMemory();
+        method();
+        System.gc();
+        System.out.println("2nd gc finished");
+        printMemory();
+    }
+
+    private int _10MB = 10*1024*1024;
+    private byte[] memory = new byte[8*_10MB];
+
+    public static void method() {
+        Test g = new Test();
+        System.gc();
+        System.out.println("1st gc finished");
+        printMemory();
+    }
+
+    public static void printMemory() {
+        System.out.print("free is " + Runtime.getRuntime().freeMemory()/1024/1024 + "M, ");
+        System.out.println("total is " + Runtime.getRuntime().totalMemory()/1024/1024 + "M");
     }
 
     private static String cnToUnicode(String cn) {
