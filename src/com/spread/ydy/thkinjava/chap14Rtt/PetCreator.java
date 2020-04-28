@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Pet;
+
 public abstract class PetCreator {
     private Random rand = new Random(47);
 

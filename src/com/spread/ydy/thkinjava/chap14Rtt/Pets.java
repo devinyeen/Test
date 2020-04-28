@@ -3,6 +3,8 @@
 package com.spread.ydy.thkinjava.chap14Rtt;
 import java.util.ArrayList;
 
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Pet;
+
 public class Pets {
     public static final PetCreator creator = new LiteralPetCreator();
 

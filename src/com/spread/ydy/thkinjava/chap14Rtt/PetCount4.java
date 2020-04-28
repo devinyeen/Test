@@ -2,6 +2,8 @@ package com.spread.ydy.thkinjava.chap14Rtt;
 
 import static com.spread.ydy.thkinjava.utils.Print.print;
 
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Pet;
+
 public class PetCount4 {
     public static void main(String[] args) {
         TypeCounter counter = new TypeCounter(Pet.class);

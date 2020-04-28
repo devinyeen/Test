@@ -4,6 +4,17 @@ import static com.spread.ydy.thkinjava.utils.Print.print;
 
 import java.util.HashMap;
 
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Cat;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Dog;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Hamster;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Manx;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Mouse;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Mutt;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Pet;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Pug;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Rat;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Rodent;
+
 public class PetCount {
     static class PetCounter extends HashMap<String, Integer> {
         public void count(String type) {

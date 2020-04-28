@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import com.spread.ydy.thkinjava.utils.MapData;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Pet;
 
 public class PetCount3 {
     static class PetCounter extends LinkedHashMap<Class<? extends Pet>, Integer> {

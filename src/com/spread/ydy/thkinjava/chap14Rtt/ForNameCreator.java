@@ -3,6 +3,8 @@ package com.spread.ydy.thkinjava.chap14Rtt;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Pet;
+
 public class ForNameCreator extends PetCreator {
     private static List<Class<? extends Pet>> types = new ArrayList<Class<? extends Pet>>();
     // Types that you want to be randomly created:

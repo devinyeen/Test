@@ -5,6 +5,19 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Cat;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Cymric;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Dog;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.EgyptianMau;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Hamster;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Manx;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Mouse;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Mutt;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Pet;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Pug;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Rat;
+import com.spread.ydy.thkinjava.utils.typeinfo.pets.Rodent;
+
 public class LiteralPetCreator extends PetCreator {
     // No try block needed.
     @SuppressWarnings("unchecked")
