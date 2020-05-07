@@ -1,12 +1,18 @@
 package com.spread.ydy;
 
-import java.io.File;
+import java.lang.ref.PhantomReference;
+import java.lang.ref.Reference;
+import java.lang.ref.ReferenceQueue;
+import java.lang.ref.SoftReference;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Stack;
+import java.util.WeakHashMap;
 
 public class Test<E> {
 
@@ -186,12 +192,156 @@ public class Test<E> {
 //        for (File file : files) {
 //            System.out.println(file.getPath());
 //        }
-        System.out.println("Start");
-        printMemory();
-        method();
+//        System.out.println("Start");
+//        printMemory();
+//        method();
+//        System.gc();
+//        System.out.println("2nd gc finished");
+//        printMemory();
+
+//        long mills = 1588069421514L;
+//        Date date = new Date(1588069421514L);
+//        System.out.println(date);
+
+//        Object referent = new Object();
+//        WeakReference<Object> weakRerference = new WeakReference<Object>(referent);
+//        assertSame(referent, weakRerference.get());
+//        System.out.println(weakRerference.get());
+//        referent = null;
+//        System.gc();
+//        System.out.println(weakRerference.get());
+//        Object referent = new Object();
+//        ReferenceQueue<Object> referenceQueue = new ReferenceQueue<Object>();
+//        WeakReference<Object> weakReference = new WeakReference<Object>(referent, referenceQueue);
+//
+//        System.out.println(weakReference.isEnqueued());
+//        Reference<? extends Object> polled = referenceQueue.poll();
+//        assertNull(polled);
+//
+//        referent = null;
+//        System.gc();
+//
+//        System.out.println(weakReference.isEnqueued());
+//        Reference<? extends Object> removed;
+//        try {
+//            removed = referenceQueue.remove();
+//            System.out.println(removed);
+//        } catch (InterruptedException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//        System.out.println("strongReference-------------------------------");
+//        strongReference();
+//        System.out.println();
+//        System.out.println("weakReference-------------------------------");
+//        weakReference();
+//        System.out.println();
+//        System.out.println("weakHashMap-------------------------------");
+//        try {
+//            weakHashMap();
+//        } catch (InterruptedException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//        System.out.println();
+//        System.out.println("softReference-------------------------------");
+//        softReference();
+//        System.out.println();
+//        System.out.println("phantomReferenceAlwaysNull-------------------------------");
+//        phantomReferenceAlwaysNull();
+//        System.out.println();
+//        System.out.println("referenceQueue-------------------------------");
+//        try {
+//            referenceQueue();
+//        } catch (InterruptedException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+        phantomReference();
+    }
+
+    public static void strongReference() {
+        Object referent = new Object();
+        Object strongReference = referent;
+
+        System.out.println(strongReference);
+
+        referent = null;
         System.gc();
-        System.out.println("2nd gc finished");
-        printMemory();
+
+        System.out.println(strongReference);
+    }
+
+    public static void weakReference() {
+        Object referent = new Object();
+        WeakReference<Object> weakRerference = new WeakReference<Object>(referent);
+
+        System.out.println(weakRerference.get());
+        referent = null;
+        System.gc();
+        System.out.println(weakRerference.get());
+    }
+
+    public static void weakHashMap() throws InterruptedException {
+        Map<Object, Object> weakHashMap = new WeakHashMap<Object, Object>();
+        Object key = new Object();
+        Object value = new Object();
+        weakHashMap.put(key, value);
+
+        System.out.println(weakHashMap.containsValue(value));
+        key = null;
+        System.gc();
+
+        Thread.sleep(1000);
+
+        System.out.println(weakHashMap.containsValue(value));
+    }
+
+    public static void softReference() {
+        Object referent = new Object();
+        SoftReference<Object> softRerference = new SoftReference<Object>(referent);
+
+        System.out.println(softRerference.get());
+        referent = null;
+        System.gc();
+
+        System.out.println(softRerference.get());
+    }
+
+    public static void phantomReferenceAlwaysNull() {
+        Object referent = new Object();
+        PhantomReference<Object> phantomReference = new PhantomReference<Object>(referent,
+                new ReferenceQueue<Object>());
+        System.out.println(phantomReference.get());
+    }
+
+    public static void phantomReference() {
+        ReferenceQueue<String> refQueue = new ReferenceQueue<String>();
+        PhantomReference<String> referent = new PhantomReference<String>(new String("T"), refQueue);
+        System.out.println(referent.get());// null
+
+        System.gc();
+        System.runFinalization();
+        System.out.println(refQueue.poll()); //true 
+
+        System.out.println(refQueue.poll() == referent); // true
+    }
+
+    public static void referenceQueue() throws InterruptedException {
+        Object referent = new Object();
+        ReferenceQueue<Object> referenceQueue = new ReferenceQueue<Object>();
+        WeakReference<Object> weakReference = new WeakReference<Object>(referent, referenceQueue);
+
+        System.out.println(weakReference.isEnqueued());
+        Reference<? extends Object> polled = referenceQueue.poll();
+        System.out.println(polled);
+
+        referent = null;
+        System.gc();
+
+        System.out.println(weakReference.isEnqueued());
+        Reference<? extends Object> removed = referenceQueue.remove();
+        System.out.println(removed);
     }
 
     private int _10MB = 10*1024*1024;
