@@ -19,7 +19,7 @@ public class BufferedInputFile {
         in.close();
         long currentMs2 = System.currentTimeMillis();
         long gap = currentMs2 - currentMs;
-        System.out.println(gap);
+//        System.out.println(gap);
         return sb.toString();
     }
 
