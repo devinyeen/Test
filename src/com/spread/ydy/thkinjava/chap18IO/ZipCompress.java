@@ -24,7 +24,7 @@ import java.util.zip.ZipOutputStream;
 
 public class ZipCompress {
     public static void main(String[] args) throws IOException {
-        FileOutputStream f = new FileOutputStream("test.zip");
+        FileOutputStream f = new FileOutputStream(".\\src\\com\\spread\\ydy\\thkinjava\\chap18IO\\test.zip");
         CheckedOutputStream csum = new CheckedOutputStream(f, new Adler32());
         ZipOutputStream zos = new ZipOutputStream(csum);
         BufferedOutputStream out = new BufferedOutputStream(zos);
@@ -45,7 +45,7 @@ public class ZipCompress {
         print("Checksum: " + csum.getChecksum().getValue());
         // Now extract the files:
         print("Reading file");
-        FileInputStream fi = new FileInputStream("test.zip");
+        FileInputStream fi = new FileInputStream(".\\src\\com\\spread\\ydy\\thkinjava\\chap18IO\\test.zip");
         CheckedInputStream csumi = new CheckedInputStream(fi, new Adler32());
         ZipInputStream in2 = new ZipInputStream(csumi);
         BufferedInputStream bis = new BufferedInputStream(in2);
@@ -60,7 +60,7 @@ public class ZipCompress {
             print("Checksum: " + csumi.getChecksum().getValue());
         bis.close();
         // Alternative way to open and read Zip files:
-        ZipFile zf = new ZipFile("test.zip");
+        ZipFile zf = new ZipFile(".\\src\\com\\spread\\ydy\\thkinjava\\chap18IO\\test.zip");
         Enumeration e = zf.entries();
         while (e.hasMoreElements()) {
             ZipEntry ze2 = (ZipEntry) e.nextElement();
