@@ -8,6 +8,7 @@ enum Shrubbery { GROUND, CRAWLING, HANGING }
 
 public class EnumClass {
     public static void main(String[] args) {
+        print(Shrubbery.GROUND + " ordinal: " + Shrubbery.GROUND.ordinal());
         for (Shrubbery s : Shrubbery.values()) {
             print(s + " ordinal: " + s.ordinal());
             printnb(s.compareTo(Shrubbery.CRAWLING) + " ");
