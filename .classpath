@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry exported="true" kind="lib" path="xom-1.3.5.jar" sourcepath="xom-1.3.5.zip"/>
+	<classpathentry exported="true" kind="lib" path="lib/xom-1.3.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/tools1.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
