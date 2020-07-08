@@ -1,0 +1,9 @@
+//: net/mindview/atunit/TestObjectCleanup.java
+// The @Unit @TestObjectCleanup tag.
+package com.spread.ydy.thkinjava.chap20annotation.atunit;
+
+import java.lang.annotation.*;
+
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface TestObjectCleanup {} /// :~
