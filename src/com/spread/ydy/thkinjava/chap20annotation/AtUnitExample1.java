@@ -2,6 +2,7 @@
 package com.spread.ydy.thkinjava.chap20annotation;
 
 import com.spread.ydy.thkinjava.chap18IO.OSExecute;
+import com.spread.ydy.thkinjava.chap20annotation.atunit.AtUnit;
 
 public class AtUnitExample1 {
     public String methodOne() {
@@ -40,7 +41,7 @@ public class AtUnitExample1 {
     }
 
     public static void main(String[] args) throws Exception {
-        OSExecute.command("java .\\bin\\com\\spread\\ydy\\thkinjava\\chap20annotation\\atunit\\AtUnit com.spread.ydy.thkinjava.chap20annotation/AtUnitExample1");
+        OSExecute.command("java -classpath .\\bin\\com\\spread\\ydy\\thkinjava\\chap20annotation\\atunit\\ com.spread.ydy.thkinjava.chap20annotation.atunit.AtUnit com.spread.ydy.thkinjava.chap20annotation/AtUnitExample1");
     }
 } /*
    * Output: annotations.AtUnitExample1 . methodOneTest . m2 This is methodTwo
