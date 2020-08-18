@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 import java.util.WeakHashMap;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Test<E> {
 
@@ -178,7 +181,7 @@ public class Test<E> {
 //                p.draw();
 //        }
 
-//        String title = " 丰富的";
+//        String title = " 涓板瘜鐨�";
 //        title = title.trim();
 //        for (int i = 0; i < title.length(); i++) {
 //            System.out.println(title.charAt(i));
@@ -257,7 +260,80 @@ public class Test<E> {
 //            // TODO Auto-generated catch block
 //            e.printStackTrace();
 //        }
-        phantomReference();
+//        phantomReference();
+//        new Thread(() -> test(1), "Thread A").start();
+//        new Thread(() -> test(1), "Thread B").start();
+//        new Thread(() -> test(2), "Thread A").start();
+//        new Thread(() -> test(2), "Thread B").start();
+//        new Thread(() -> test(2), "Thread C").start();
+//        new Thread(() -> test(2), "Thread D").start();
+//        new Thread(() -> test(2), "Thread E").start();
+        Thread thread = new Thread(new ThreadDemo(lock, lock1));
+        Thread thread1 = new Thread(new ThreadDemo(lock1, lock));
+        thread.start();
+        thread1.start();
+        thread.interrupt();
+    }
+
+    private static final Lock lock = new ReentrantLock();
+    private static final Lock lock1 = new ReentrantLock(true);
+
+    public static void test(int choice) {
+        if (1 == choice) {
+            try {
+                lock.lock();
+                System.out.println(Thread.currentThread().getName() + " get lock");
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } finally {
+                System.out.println(Thread.currentThread().getName() + " release lock");
+                lock.unlock();
+            }
+        } else if (2 == choice) {
+            for (int i = 0; i < 2; i++) {
+                try {
+                    lock1.lock();
+                    System.out.println(Thread.currentThread().getName() + " get lock");
+                    TimeUnit.SECONDS.sleep(2);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } finally {
+                    System.out.println(Thread.currentThread().getName() + " release lock");
+                    lock1.unlock();
+                }
+            }
+        }
+    }
+
+    static class ThreadDemo implements Runnable {
+        Lock firstLock;
+        Lock secondLock;
+
+        public ThreadDemo(Lock firstLock, Lock secondLock) {
+            super();
+            this.firstLock = firstLock;
+            this.secondLock = secondLock;
+        }
+
+
+
+        @Override
+        public void run() {
+            try {
+                firstLock.lockInterruptibly();
+                TimeUnit.MILLISECONDS.sleep(50);
+                secondLock.lockInterruptibly();
+            } catch (Exception e) {
+                // TODO: handle exception
+            } finally {
+                firstLock.unlock();
+                secondLock.unlock();
+                System.out.println(Thread.currentThread().getName() + " get resource, end normally!");
+            }
+
+        }
+
     }
 
     public static void strongReference() {
@@ -378,9 +454,9 @@ public class Test<E> {
         return;
     }
 
-    public static int mystery(int a, int b) {// 神秘的函数，其实就是add(a,b)函数，
+    public static int mystery(int a, int b) {// 绁炵鐨勫嚱鏁帮紝鍏跺疄灏辨槸add(a,b)鍑芥暟锛�
         if (b == 0)
-            return 0; // 至于题意中说的将代码中+换成*，return 0换成return 1，并没看出来啥效果
+            return 0; // 鑷充簬棰樻剰涓鐨勫皢浠ｇ爜涓�+鎹㈡垚*锛宺eturn 0鎹㈡垚return 1锛屽苟娌＄湅鍑烘潵鍟ユ晥鏋�
         if (b % 2 == 0)
             return mystery(a + a, b / 2);
         return mystery(a + a, b / 2) + a;
