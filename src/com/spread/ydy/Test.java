@@ -268,11 +268,14 @@ public class Test<E> {
 //        new Thread(() -> test(2), "Thread C").start();
 //        new Thread(() -> test(2), "Thread D").start();
 //        new Thread(() -> test(2), "Thread E").start();
-        Thread thread = new Thread(new ThreadDemo(lock, lock1));
-        Thread thread1 = new Thread(new ThreadDemo(lock1, lock));
-        thread.start();
-        thread1.start();
-        thread.interrupt();
+//        Thread thread = new Thread(new ThreadDemo(lock, lock1));
+//        Thread thread1 = new Thread(new ThreadDemo(lock1, lock));
+//        thread.start();
+//        thread1.start();
+//        thread.interrupt();
+        long f = 1000;
+        System.out.println((float) f/1000);
+        System.out.println((float) (f/1000));
     }
 
     private static final Lock lock = new ReentrantLock();
