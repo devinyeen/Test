@@ -273,13 +273,34 @@ public class Test<E> {
 //        thread.start();
 //        thread1.start();
 //        thread.interrupt();
-        long f = 1000;
-        System.out.println((float) f/1000);
-        System.out.println((float) (f/1000));
+//        long f = 1000;
+//        System.out.println((float) f/1000);
+//        System.out.println((float) (f/1000));
+//        System.out.println(roundStorageSize(10000));
+        int a = 0;
+        setValue(a);
+        System.out.println(a);
     }
 
     private static final Lock lock = new ReentrantLock();
     private static final Lock lock1 = new ReentrantLock(true);
+    public static int setValue(int a) {
+        a += 1;
+        return a;
+    }
+
+    public static long roundStorageSize(long size) {
+        long val = 1;
+        long pow = 1;
+        while ((val * pow) < size) {
+            val <<= 1;
+            if (val > 512) {
+                val = 1;
+                pow *= 1000;
+            }
+        }
+        return val * pow;
+    }
 
     public static void test(int choice) {
         if (1 == choice) {
