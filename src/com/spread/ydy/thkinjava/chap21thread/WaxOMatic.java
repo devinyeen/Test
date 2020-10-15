@@ -2,7 +2,6 @@
 // Basic task cooperation.
 package com.spread.ydy.thkinjava.chap21thread;
 import static com.spread.ydy.thkinjava.utils.Print.print;
-import static com.spread.ydy.thkinjava.utils.Print.printnb;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
