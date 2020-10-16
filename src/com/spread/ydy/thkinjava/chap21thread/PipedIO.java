@@ -1,7 +1,6 @@
 package com.spread.ydy.thkinjava.chap21thread;
 
 import static com.spread.ydy.thkinjava.utils.Print.print;
-import static com.spread.ydy.thkinjava.utils.Print.printnb;
 
 import java.io.IOException;
 import java.io.PipedReader;
@@ -62,7 +61,7 @@ public class PipedIO {
         ExecutorService exec = Executors.newCachedThreadPool();
         exec.execute(sender);
         exec.execute(receiver);
-        TimeUnit.SECONDS.sleep(4);
+        TimeUnit.SECONDS.sleep(5);
         exec.shutdownNow();
     }
 } /* Output: (65% match)
