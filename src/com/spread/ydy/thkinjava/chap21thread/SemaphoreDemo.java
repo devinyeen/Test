@@ -46,8 +46,9 @@ public class SemaphoreDemo {
     public static void main(String[] args) throws Exception {
         final Pool<Fat> pool = new Pool<Fat>(Fat.class, SIZE);
         ExecutorService exec = Executors.newCachedThreadPool();
-        for (int i = 0; i < SIZE; i++)
+        for (int i = 0; i < SIZE; i++) {
             exec.execute(new CheckoutTask<Fat>(pool));
+        }
         print("All CheckoutTasks created");
         List<Fat> list = new ArrayList<Fat>();
         for (int i = 0; i < SIZE; i++) {
@@ -109,11 +110,12 @@ class Pool<T> {
     }
 
     private synchronized T getItem() {
-        for (int i = 0; i < size; ++i)
+        for (int i = 0; i < size; ++i) {
             if (!checkedOut[i]) {
                 checkedOut[i] = true;
                 return items.get(i);
             }
+        }
         return null; // Semaphore prevents reaching here
     }
 
@@ -148,4 +150,4 @@ class Fat {
     public String toString() {
         return "Fat id: " + id;
     }
-} 
+}
